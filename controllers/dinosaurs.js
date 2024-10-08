@@ -18,7 +18,50 @@ const getSingle = async (req, res) => {
     });
 };
 
+const createDino = async (req, res) => {
+    const dinosaur = {
+        name: req.body.name,
+        period: req.body.period,
+        type: req.body.type
+    };
+    const response = await mongodb.getDatabase().db('crudProject').collection('dinosaurs').insertOne(dinosaur);
+    if(response.acknowledged) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occurred while creating the dinosaur.');
+    }
+};
+
+const updateDino = async (req, res) => {
+    const dinosaurId = new ObjectId(req.params.id);
+    const dinosaur = {
+        name: req.body.name,
+        period: req.body.period,
+        type: req.body.type
+    };
+    const response = await mongodb.getDatabase().db('crudProject').collection('dinosaurs').replaceOne({_id: dinosaurId}, dinosaur);
+    if(response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occurred while updating the dinosaur.');
+    }
+};
+
+const deleteDino = async (req, res) => {
+    const dinosaurId = new ObjectId(req.params.id);
+    
+    const response = await mongodb.getDatabase().db('crudProject').collection('dinosaurs').deleteOne({_id: dinosaurId});;
+    if(response.deletedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occurred while deleting the dinosaur.');
+    }
+};
+
 module.exports = {
     getAll,
-    getSingle
+    getSingle,
+    createDino,
+    updateDino,
+    deleteDino
 };

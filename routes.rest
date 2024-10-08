@@ -1,0 +1,150 @@
+// Pokemon PRODUCTION
+
+### Get Pokemon by id
+
+GET https://crudproject-gdpp.onrender.com/pokemon/<pokemonId>
+
+### Get all pokemon
+
+GET https://crudproject-gdpp.onrender.com/pokemon
+
+### Create Pokemon
+
+POST https://crudproject-gdpp.onrender.com/pokemon HTTP/1.1
+content-type: application/json
+
+{
+"name": "Gyarados",
+"gen": "1", 
+"type1": "water", 
+"type2": "flying"
+}
+
+###PUT Pokemon 
+PUT https://crudproject-gdpp.onrender.com/pokemon/<pokemonId> 
+Content-Type: application/json
+
+{
+"name": "",
+"gen": "", 
+"type1": "", 
+"type2": ""
+}
+
+###DELETE Pokemon 
+DELETE http://localhost:3030/pokemon/<PokemonId>
+
+
+
+
+// Dinosaurs PRODUCTION
+
+### Get Dinosaur by id
+
+GET https://crudproject-gdpp.onrender.com/dinosaurs/<dinosaursId>
+
+### Get all Dinosaur
+
+GET https://crudproject-gdpp.onrender.com/dinosaurs
+
+### Create Dinosaur
+
+POST https://crudproject-gdpp.onrender.com/dinosaurs HTTP/1.1
+content-type: application/json
+
+{
+"name": "",
+"period": "", 
+"type": ""
+}
+
+###PUT Dinosaur 
+PUT https://crudproject-gdpp.onrender.com/dinosaurs/<dinosaursId> 
+Content-Type: application/json
+
+{
+"name": "",
+"period": "", 
+"type": ""
+}
+
+###DELETE Dinosaur 
+DELETE http://localhost:3030/dinosaurs/<dinosaursId>
+
+
+
+
+
+// Pokemon LOCALHOST
+
+### Get Pokemon by id
+
+GET http://localhost:3030/pokemon/6701ccc99a73a1dfd59c3acc
+
+### Get all pokemon
+
+GET http://localhost:3030/pokemon
+
+### Create Pokemon
+
+POST http://localhost:3030/pokemon HTTP/1.1
+content-type: application/json
+
+{
+"name": "Gyarados",
+"gen": "1", 
+"type1": "water", 
+"type2": "flying"
+}
+
+###PUT Pokemon 
+PUT http://localhost:3030/pokemon/<pokemonId> 
+content-Type: application/json
+
+{
+"name": "",
+"gen": "", 
+"type1": "", 
+"type2": ""
+}
+
+###DELETE Pokemon
+DELETE http://localhost:3030/pokemon/670482268fa08e5fd0f2988a
+
+
+
+
+
+// Dinosaur LOCALHOST
+
+### Get dinosaur by id
+
+GET http://localhost:3030/dinosaurs/
+
+### Get all dinosaurs
+
+GET http://localhost:3030/dinosaurs
+
+### Create dinosaur
+
+POST http://localhost:3030/dinosaurs HTTP/1.1
+content-type: application/json
+
+{
+"name": "",
+"period": "", 
+"type": ""
+}
+
+###PUT dinosaur
+PUT http://localhost:3030/dinosaurs/<dinosaursId> 
+Content-Type: application/json
+
+{
+"name": "",
+"period": "", 
+"type": ""
+}
+
+###DELETE dinosaur
+DELETE http://localhost:3030/dinosaurs/<dinosaursId>

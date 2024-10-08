@@ -18,7 +18,52 @@ const getSingle = async (req, res) => {
     });
 };
 
+const createMon = async (req, res) => {
+    const pokemon = {
+        name: req.body.name,
+        gen: req.body.gen,
+        type1: req.body.type1,
+        type2: req.body.type2
+    };
+    const response = await mongodb.getDatabase().db('crudProject').collection('pokemon').insertOne(pokemon);
+    if(response.acknowledged) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occurred while creating the Pokemon.');
+    }
+};
+
+const updateMon = async (req, res) => {
+    const pokemonId = new ObjectId(req.params.id);
+    const pokemon = {
+        name: req.body.name,
+        gen: req.body.gen,
+        type1: req.body.type1,
+        type2: req.body.type2
+    };
+    const response = await mongodb.getDatabase().db('crudProject').collection('pokemon').replaceOne({_id: pokemonId}, pokemon);
+    if(response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occurred while updating the Pokemon.');
+    }
+};
+
+const deleteMon = async (req, res) => {
+    const pokemonId = new ObjectId(req.params.id);
+    
+    const response = await mongodb.getDatabase().db('crudProject').collection('pokemon').deleteOne({_id: pokemonId});
+    if(response.deletedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occurred while deleting the Pokemon.');
+    }
+};
+
 module.exports = {
     getAll,
-    getSingle
+    getSingle,
+    createMon,
+    updateMon,
+    deleteMon
 };
