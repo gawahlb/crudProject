@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {res.send('Hello World')});
+router.get('/', (req, res) => {res.send('Enjoy these databases whose topics were selected by my children.')});
 
 router.use('/pokemon', require('./pokemon'));
 
