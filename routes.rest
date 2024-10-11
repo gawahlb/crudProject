@@ -2,7 +2,7 @@
 
 ### Get Pokemon by id
 
-GET https://crudproject-gdpp.onrender.com/pokemon/<pokemonId>
+GET https://crudproject-gdpp.onrender.com/pokemon/6701ccc99a73a1dfd59c3acc
 
 ### Get all pokemon
 
@@ -17,22 +17,22 @@ content-type: application/json
 "name": "Gyarados",
 "gen": "1", 
 "type1": "water", 
-"type2": "flying"
-}
-
-###PUT Pokemon 
-PUT https://crudproject-gdpp.onrender.com/pokemon/<pokemonId> 
-Content-Type: application/json
-
-{
-"name": "",
-"gen": "", 
-"type1": "", 
 "type2": ""
 }
 
+###PUT Pokemon 
+PUT https://crudproject-gdpp.onrender.com/pokemon/67087081c23364ed48706f1a 
+Content-Type: application/json
+
+{
+"name": "Gyarados",
+"gen": "1",
+"type1": "water",
+"type2": "flying"
+}
+
 ###DELETE Pokemon 
-DELETE http://localhost:3030/pokemon/<PokemonId>
+DELETE https://crudproject-gdpp.onrender.com/pokemon/670870b6c23364ed48706f1b 
 
 
 
@@ -41,7 +41,7 @@ DELETE http://localhost:3030/pokemon/<PokemonId>
 
 ### Get Dinosaur by id
 
-GET https://crudproject-gdpp.onrender.com/dinosaurs/<dinosaursId>
+GET https://crudproject-gdpp.onrender.com/dinosaurs/670470bfcff14cf7fdc77b4e
 
 ### Get all Dinosaur
 
@@ -53,23 +53,23 @@ POST https://crudproject-gdpp.onrender.com/dinosaurs HTTP/1.1
 content-type: application/json
 
 {
-"name": "",
-"period": "", 
-"type": ""
+"name": "Stegosaurus",
+"period": "Jurrasic", 
+"type": "Herbivore"
 }
 
 ###PUT Dinosaur 
-PUT https://crudproject-gdpp.onrender.com/dinosaurs/<dinosaursId> 
+PUT https://crudproject-gdpp.onrender.com/dinosaurs/6704715bcff14cf7fdc77b50 
 Content-Type: application/json
 
 {
-"name": "",
-"period": "", 
-"type": ""
+"name": "Dimetrodon",
+"period": "Permian",
+"type": "Carnivorex"
 }
 
 ###DELETE Dinosaur 
-DELETE http://localhost:3030/dinosaurs/<dinosaursId>
+DELETE https://crudproject-gdpp.onrender.com/dinosaurs/67087127c23364ed48706f1c
 
 
 
