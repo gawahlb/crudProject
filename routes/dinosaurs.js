@@ -3,14 +3,16 @@ const router = express.Router();
 
 const dinoController = require('../controllers/dinosaurs');
 
+const {isAuthenticated} = require("../middleware/authenticate")
+
 router.get('/', dinoController.getAll);
 
 router.get('/:id', dinoController.getSingle);
 
-router.post('/', dinoController.createDino);
+router.post('/', isAuthenticated, dinoController.createDino);
 
-router.put('/:id', dinoController.updateDino);
+router.put('/:id', isAuthenticated, dinoController.updateDino);
 
-router.delete('/:id', dinoController.deleteDino);
+router.delete('/:id', isAuthenticated, dinoController.deleteDino);
 
 module.exports = router;

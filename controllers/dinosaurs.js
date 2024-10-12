@@ -2,6 +2,7 @@ const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
+    //#swagger.tags=['Dinosaurs']
     const result = await mongodb.getDatabase().db('crudProject').collection('dinosaurs').find();
     result.toArray().then((dinosaurs) => {
         res.setHeader('Content-Type', 'application/json');
@@ -10,6 +11,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+    //#swagger.tags=['Dinosaurs']
     const dinosaursId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db('crudProject').collection('dinosaurs').find({_id: dinosaursId});
     result.toArray().then((dinosaurs) => {
@@ -19,6 +21,7 @@ const getSingle = async (req, res) => {
 };
 
 const createDino = async (req, res) => {
+    //#swagger.tags=['Dinosaurs']
     const dinosaur = {
         name: req.body.name,
         period: req.body.period,
@@ -33,6 +36,7 @@ const createDino = async (req, res) => {
 };
 
 const updateDino = async (req, res) => {
+    //#swagger.tags=['Dinosaurs']
     const dinosaurId = new ObjectId(req.params.id);
     const dinosaur = {
         name: req.body.name,
@@ -48,6 +52,7 @@ const updateDino = async (req, res) => {
 };
 
 const deleteDino = async (req, res) => {
+    //#swagger.tags=['Dinosaurs']
     const dinosaurId = new ObjectId(req.params.id);
     
     const response = await mongodb.getDatabase().db('crudProject').collection('dinosaurs').deleteOne({_id: dinosaurId});;
