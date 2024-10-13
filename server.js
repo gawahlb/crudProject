@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require ('express');
 const mongodb = require ('./data/database');
 const bodyParser = require('body-parser');
@@ -8,6 +9,7 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const mongoStore = require('connect-mongo');
 
 const port = process.env.PORT || 3030;
 app
@@ -16,6 +18,9 @@ app
         secret: "secret",
         resave: false,
         saveUninitialized: true,
+        store: mongoStore.create({
+            mongoUrl: process.env.MONGODB_URL,
+        }),
     }))
     .use(passport.initialize())
     .use(passport.session())
