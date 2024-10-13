@@ -5,11 +5,11 @@
     "description": "Pokemon & Dinosaur Api",
     "version": "1.0.0"
   },
-  "host": "localhost:3030",
+  "host": "crudproject-gdpp.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
-    "https"
+    "https",
+    "http"
   ],
   "paths": {
     "/": {

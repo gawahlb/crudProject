@@ -5,8 +5,8 @@ const doc = {
         title: 'Pokemon & Dinosaur Api',
         description: 'Pokemon & Dinosaur Api'
     },
-    host: 'localhost:3030',
-    schemes: ['http', 'https']
+    host: 'crudproject-gdpp.onrender.com',
+    schemes: ['https', 'http']
 };
 
 const outputFile = './swagger.json';
